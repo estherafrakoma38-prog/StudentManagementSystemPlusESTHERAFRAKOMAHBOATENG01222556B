@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f5f6fa;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.ui.ReportController">
+
+<!-- ===== LEFT SIDEBAR (New Layout Position) ===== -->
+<left>
+    <VBox alignment="TOP_CENTER" spacing="25" style="-fx-background-color: brown; -fx-pref-width: 280; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 5, 0);">
+
+        <!-- Title Section -->
+        <Label style="-fx-font-size: 24px;                           -fx-font-family: 'Segoe UI Semibold';                           -fx-text-fill: white;" text="Report Center" wrapText="true" />
+
+        <Label style="-fx-font-size: 12px;                           -fx-text-fill: #a4b0be;" text="Manage student data and generate reports" textFill="WHITE" wrapText="true" />
+
+        <!-- Separator -->
+        <Region style="-fx-background-color: white; -fx-pref-height: 1; -fx-pref-width: 200;" />
+
+        <!-- Action Buttons Section -->
+        <VBox alignment="CENTER" spacing="12" style="-fx-padding: 20 0 0 0;">
+
+            <!-- Import Button -->
+            <Button maxWidth="Infinity" onAction="#importCsv" style="-fx-background-color: #3742fa;                                -fx-text-fill: white;                                -fx-font-family: 'Segoe UI Semibold';                                -fx-font-size: 13px;                                -fx-background-radius: 30;                                -fx-padding: 12 20;                                -fx-cursor: hand;" text="Import CSV File" />
+
+            <!-- Export Button -->
+            <Button maxWidth="Infinity" onAction="#exportCsv" style="-fx-background-color: #2ed573;                                -fx-text-fill: white;                                -fx-font-family: 'Segoe UI Semibold';                                -fx-font-size: 13px;                                -fx-background-radius: 30;                                -fx-padding: 12 20;                                -fx-cursor: hand;" text="Export CSV File" />
+        </VBox>
+
+        <!-- Spacer to push footer down -->
+        <Region prefHeight="217.0" prefWidth="220.0" VBox.vgrow="ALWAYS" />
+
+        <!-- Footer Info -->
+        <Label style="-fx-text-fill: #57606f; -fx-font-size: 10px;" text="Version 1.0" />
+
+    </VBox>
+</left>
+
+<!-- ===== MAIN CONTENT AREA ===== -->
+<center>
+    <VBox spacing="20" style="-fx-padding: 30;">
+
+        <!-- Header for Table -->
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Label style="-fx-font-size: 20px;                               -fx-font-family: 'Segoe UI Semibold';                               -fx-text-fill: #2f3640;" text="Student Records" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Label style="-fx-font-size: 14px;                               -fx-text-fill: #747d8c;" text="Academic Overview" />
+        </HBox>
+
+        <!-- Table Container (Card Style) -->
+        <TableView fx:id="reportTable" style="-fx-background-color: white;                               -fx-background-radius: 12;                               -fx-border-color: #dfe4ea;                               -fx-border-radius: 12;                               -fx-border-width: 1;" VBox.vgrow="ALWAYS">
+
+            <columns>
+                <TableColumn fx:id="reportIdColumn" prefWidth="120" text="Student ID" />
+                <TableColumn fx:id="reportNameColumn" prefWidth="180" text="Full Name" />
+                <TableColumn fx:id="reportProgrammeColumn" prefWidth="160" text="Programme" />
+                <TableColumn fx:id="reportLevelColumn" prefWidth="100" text="Level" />
+                <TableColumn fx:id="reportGpaColumn" prefWidth="100" text="GPA" />
+                <TableColumn fx:id="reportStatusColumn" prefWidth="120" text="Status" />
+            </columns>
+
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+
+        </TableView>
+
+    </VBox>
+</center>
+
+</BorderPane>
